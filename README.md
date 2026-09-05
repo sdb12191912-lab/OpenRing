@@ -187,62 +187,15 @@ When creating a **New release**, upload installable/distributable files directly
 
 ## 🟢 Runtime status (schedules & background work)
 
-- **Top-bar status lamp** (Chat): Green (breathing) when **any schedule is enabled**, when **chat AI is running**, or when **a script is executing** (manual run, `WorkManager` worker, or always-on loop). Gray when nothing is armed and nothing is processing.
-- **Unified status notification** (`SchedulerStatusNotification`): Stays visible while schedules are enabled and/or background work is active. Title switches to **“background processing”** while scripts or chat runs are in progress (tracked by `BackgroundWorkTracker`), not only when an alarm fires.
-- **Always-on mode** (`schedule.mode = "always_on"`): Uses a foreground scheduler service for stable timing under idle/doze. The notification can include **Terminate always-on** while that service is running.
+- **Top-bar status lamp** (Chat): Green (breathing) when **any schedule is enabled**, when **chat AI is running**, or when a script is executing.
+- **Unified status notification** (`SchedulerStatusNotification`): Stays visible while schedules are enabled and/or background work is active.
+- **Always-on mode** (`schedule.mode = "always_on"`): Uses a foreground scheduler service for stable timing under idle/doze.
 - **Suspended until next app launch**: After **Terminate always-on**, always-on stays off until the next cold app launch (`AlwaysOnRunGate`).
 
 On **Android 13+**, grant **notification permission** or you will not see status notifications.
-
-### Permission settings
-
-Open **Settings** (from Chat) → **Permission settings** to manage:
-
-| Area                        | Purpose                                                                                                                                                                                                     |
-| --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Notifications**           | Status / scheduler / AI run alerts (Android 13+ runtime grant; older OS links to system notification settings).                                                                                             |
-| **Microphone**              | `RECORD_AUDIO` — required for agent audio tools (including internal playback capture APIs).                                                                                                                 |
-| **Device playback audio**   | Android 10+: user-granted **MediaProjection** (same consent pattern as screen recording) + foreground service — used so `describe_ambient_audio` can capture **other apps’ speaker mix**, not only the mic. |
-| **Display over other apps** | Floating stop control during runs.                                                                                                                                                                          |
-| **Accessibility**           | Core automation (OpenRing accessibility service).                                                                                                                                                           |
-
-The same screen is available from the Chat menu as **Permissions & accessibility**.
-
----
-
-## 🤝 Contributing
-
-We welcome community participation! Whether it's reporting bugs, suggesting new features, or directly opening Pull Requests, every contribution is crucial to us.
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feat/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'feat: Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feat/AmazingFeature`)
-5. Open a Pull Request
-
-For detailed contribution guidelines, please see [CONTRIBUTING.md](CONTRIBUTING.md).
-
----
-
-## 🛡️ Security
-
-If you discover any security vulnerabilities, please **do not** report them in public Issues.
-Please refer to our [Security Policy (SECURITY.md)](SECURITY.md) to learn how to contact us privately and help fix the issue.
-
----
-
-## 🔁 CI/CD & automated checks
-
-GitHub Actions builds a **debug APK** on each push/PR (downloadable from the workflow run’s **Artifacts**), runs **CodeQL** static analysis for Java/Kotlin after a Gradle build, and uses **Dependency Review** plus **Dependabot** to surface vulnerable or outdated dependencies. See [docs/technical/CI_CD.md](docs/technical/CI_CD.md) for workflow names, permissions, and artifact usage.
 
 ---
 
 ## 📜 License
 
-This project is licensed under the **MIT License** — this means you are free to use, modify, and distribute this code. See the [LICENSE](LICENSE) file for details.
-
----
-
-<div align="center">
-  <b>Free your hands with technology, let your phone automate work for you.</b>
-</div>
+This project is licensed under the **MIT License**.
