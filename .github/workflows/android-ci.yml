@@ -3,9 +3,14 @@ name: Android CI
 
 on:
   push:
-    branches: [main, master, openjarvis-alpha]
+    branches:
+      - main
+      - master
+      - openjarvis-alpha
   pull_request:
-    branches: [main, master]
+    branches:
+      - main
+      - master
   workflow_dispatch:
 
 concurrency:
