@@ -48,3 +48,5 @@ jobs:
           name: openjarvis-debug-apk
           path: app/build/outputs/apk/debug/*.apk
           if-no-files-found: error
+
+# openjarvis-alpha CI trigger marker
